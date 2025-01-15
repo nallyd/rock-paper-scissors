@@ -42,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
         return 2;
     }
 
-    // Log tree for winning/losing match-ups since we know it's not a tie
+    // Logic tree for winning/losing match-ups since we know it's not a tie
     if (humanChoice === "rock") {
         if (computerChoice === "scissors") {
             console.log(`You win! Rock beats Scissors!`);
