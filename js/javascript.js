@@ -20,17 +20,19 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
+function getHumanChoice(invalidLast) {
     // Get choice from user, trim whitespace and conver to lower case
-    let choice = prompt("Please choose rock, paper or scissors!").trim().toLowerCase();
+    let choice = (invalidLast) ?
+        prompt("Invalid choice. Please choose rock, paper or scissors!").trim().toLowerCase() :
+        prompt("Please choose rock, paper or scissors!").trim().toLowerCase();
 
     // If the choice is rock, paper, or scissors -> return choice
-    // Otherwise, advise the choice was invalid
+    // Otherwise, advise the choice was invalid and prompt again
     if (choice === "rock" || choice === "paper" || choice === "scissors") {
         return choice;
     }
-    
-    return "invalid";
+
+    return getHumanChoice(true);
 }
 
 function playRound(humanChoice, computerChoice) {
